@@ -25,8 +25,6 @@ theme_diploma <- theme_minimal(base_size = 12) +
 
 # РОЗДІЛ 1. Завантаження даних 
 
-# РОЗДІЛ 1. Завантаження даних
-
 data_raw <- read.csv("weather.csv", fileEncoding = "UTF-8-BOM")
 
 # Якщо BOM все одно проскочив у першу колонку — прибираємо:
@@ -163,8 +161,6 @@ abline(v = 3, lty = 2, col = CLR_ORANGE, lwd = 2)
 text(3.2, max(wss) * 0.97, "k = 3", col = CLR_ORANGE, cex = 0.9, font = 2) 
 
 
-
-
 # 4.2 k-means  
 set.seed(123) 
 kmeans_model <- kmeans(cluster_data_scaled, centers = 3, nstart = 25) 
@@ -206,9 +202,6 @@ ggplot(data, aes(x = tavg, y = pres, colour = season)) +
        colour = "Сезон") + 
   theme_diploma 
 
-
-
-
 # 4.4 Графік: температура і швидкість вітру 
 ggplot(data, aes(x = tavg, y = wspd, colour = season)) + 
   geom_point(alpha = 0.6, size = 1.6) + 
@@ -247,8 +240,6 @@ col_labels_y <- c(
 ) 
 
 col_keys <- c("tavg", "tmin", "tmax", "prcp", "wspd", "pres") 
-
-
 
 
 cor_ua <- cor_matrix 
@@ -325,10 +316,6 @@ ggplot(cor_long, aes(x = col_lbl, y = row_lbl, fill = r)) +
   )
 
 # РОЗДІЛ 6. Поділ на вибірки 
-
-
-
-
 
 split_boundary <- as.Date("2024-01-01") 
 train <- data[data$date <  split_boundary, ] 
@@ -413,8 +400,6 @@ forecast_2025 <- forecast_2025[order(forecast_2025$date), ]
 forecast_2025$predicted <- predict(model, newdata = forecast_2025) 
 
 
-
-
 cat(" 
 === Прогноз середньої температури на 2025 рік === 
 ") 
@@ -456,7 +441,6 @@ ggplot() +
            colour = "#666666") + 
   # Межа тестова | прогноз 
   
-
 
 geom_vline(xintercept = as.numeric(forecast_boundary), 
            linetype = "dotted", colour = "#CC0000", linewidth = 0.7) + 
