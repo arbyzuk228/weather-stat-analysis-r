@@ -34,7 +34,6 @@ if (names(data_raw)[1] != "date") names(data_raw)[1] <- "date"
 data_raw$date <- as.Date(data_raw$date, format = "%Y-%m-%d %H:%M:%S")
 
 
-
 cat("\n Пропущені значення (до очищення) \n") 
 na_counts <- colSums(is.na(data_raw)) 
 na_pct    <- round(na_counts / nrow(data_raw) * 100, 1) 
@@ -76,7 +75,6 @@ hist(data$tavg,
 # Явні мітки: -20, -10, 0, 10, 20, 30, 35 
 
 
-
 axis(1, at = seq(-20, 35, by = 10), 
      cex.axis = 1.15, col.axis = "#333333", font = 2) 
 
@@ -115,9 +113,7 @@ date_from <- ANALYSIS_FROM
 date_to   <- ANALYSIS_TO 
 data_plot <- data[data$date >= date_from & data$date <= date_to, ] 
 
-
 x_ticks  <- as.Date(c("2021-01-01","2022-01-01","2023-01-01","2024-01-01")) 
-
 
 
 x_labels <- c("2021","2022","2023","2024") 
